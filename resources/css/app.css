@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --bg-1: #f0f9ff;
+    --bg-2: #ecfeff;
+    --card: #ffffff;
+    --ink: #0f172a;
+    --ink-soft: #475569;
+    --brand: #0f766e;
+    --brand-dark: #115e59;
+    --danger: #dc2626;
+    --success: #047857;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans SC', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 0% 0%, rgba(20, 184, 166, 0.15), transparent 45%),
+        radial-gradient(circle at 100% 100%, rgba(14, 116, 144, 0.15), transparent 40%),
+        linear-gradient(140deg, var(--bg-1), var(--bg-2));
+    min-height: 100vh;
+}
+
+.app-shell {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.page {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 16px 16px 82px;
+}
+
+.auth-page {
+    max-width: 560px;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.top-bar .title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.top-bar .actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.panel {
+    background: var(--card);
+    border: 1px solid #dbeafe;
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+}
+
+.panel h2 {
+    margin: 0 0 12px;
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+.panel h3 {
+    margin: 12px 0 8px;
+    font-size: 16px;
+    color: var(--ink-soft);
+}
+
+.menu-card {
+    border-radius: 14px;
+    background: linear-gradient(160deg, rgba(20, 184, 166, 0.12), rgba(14, 116, 144, 0.08));
+    border: 1px solid rgba(15, 118, 110, 0.25);
+    padding: 14px;
+    margin: 12px 0;
+}
+
+.menu-card .menu-date {
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.menu-card ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.menu-card small {
+    display: block;
+    margin-top: 8px;
+    color: var(--ink-soft);
+}
+
+.form-action {
+    margin-top: 14px;
+}
+
+.actions-row {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.filter-grid {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: 10px;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin: 12px 0;
+}
+
+.metrics-grid article {
+    border: 1px solid #ccfbf1;
+    border-radius: 12px;
+    padding: 12px;
+    background: #f0fdfa;
+}
+
+.metrics-grid h3 {
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink-soft);
+}
+
+.metrics-grid strong {
+    display: block;
+    margin-top: 6px;
+    font-size: 24px;
+    color: var(--brand-dark);
+}
+
+.key-value {
+    margin-bottom: 12px;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 6px 12px;
+}
+
+.key-value > div:nth-child(odd) {
+    color: var(--ink-soft);
+}
+
+.scan-result {
+    margin: 12px 0;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.scan-result.pass {
+    background: #ecfdf5;
+    border: 1px solid #86efac;
+}
+
+.scan-result.failed {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+}
+
+.weekly-grid {
+    display: grid;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.weekly-card {
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    padding: 12px;
+    background: #f8fafc;
+}
+
+.weekly-card h3 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    color: var(--ink);
+}
+
+.weekly-card ul {
+    margin: 0;
+    padding-left: 16px;
+    color: var(--ink-soft);
+}
+
+.dialog-body {
+    padding: 10px 0;
+}
+
+.hint {
+    color: var(--ink-soft);
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .panel {
+        border-radius: 14px;
+        padding: 14px;
+    }
+
+    .filter-grid,
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .key-value {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .top-bar .title {
+        font-size: 18px;
+    }
+}

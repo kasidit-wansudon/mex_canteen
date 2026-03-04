@@ -1,0 +1,176 @@
+openapi: 3.0.3
+info:
+  title: Canteen Management API
+  version: 1.0.0
+servers:
+  - url: http://localhost/api
+paths:
+  /auth/login:
+    post:
+      summary: Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [staff_code, password]
+              properties:
+                staff_code:
+                  type: string
+                password:
+                  type: string
+                device_name:
+                  type: string
+      responses:
+        '200':
+          description: Authenticated
+  /user/profile:
+    get:
+      summary: Current profile
+      security:
+        - sanctum: []
+      responses:
+        '200':
+          description: User profile
+  /meal-plans/daily:
+    get:
+      summary: Daily meal plans
+      security:
+        - sanctum: []
+      parameters:
+        - in: query
+          name: date
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: Meal plans list
+  /reservations:
+    get:
+      summary: Reservation history
+      security:
+        - sanctum: []
+      responses:
+        '200':
+          description: Reservation list
+    post:
+      summary: Create reservation
+      security:
+        - sanctum: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [meal_plan_id, reservation_type]
+              properties:
+                meal_plan_id:
+                  type: integer
+                reservation_type:
+                  type: string
+                visitor_count:
+                  type: integer
+                pickup_for_staff_code:
+                  type: string
+                remark:
+                  type: string
+      responses:
+        '201':
+          description: Reservation created
+  /reservations/{id}/qr:
+    get:
+      summary: Reservation QR payload
+      security:
+        - sanctum: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: QR payload
+  /admin/meal-plans:
+    post:
+      summary: Create or update meal plan
+      security:
+        - sanctum: []
+      responses:
+        '200':
+          description: Meal plan saved
+  /admin/qr-validate:
+    post:
+      summary: Validate QR token
+      security:
+        - sanctum: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [qr_code_token]
+              properties:
+                qr_code_token:
+                  type: string
+      responses:
+        '200':
+          description: Validation pass
+        '422':
+          description: Validation failed
+  /admin/dashboard/stats:
+    get:
+      summary: Dashboard metrics
+      security:
+        - sanctum: []
+      parameters:
+        - in: query
+          name: period
+          schema:
+            type: string
+            enum: [day, week, month]
+      responses:
+        '200':
+          description: Dashboard statistics
+  /admin/reports/daily:
+    get:
+      summary: Daily report
+      security:
+        - sanctum: []
+      responses:
+        '200':
+          description: Report list or CSV stream
+  /admin/reports/monthly:
+    get:
+      summary: Monthly report
+      security:
+        - sanctum: []
+      responses:
+        '200':
+          description: Monthly aggregated report
+  /admin/users:
+    get:
+      summary: User list
+      security:
+        - sanctum: []
+      responses:
+        '200':
+          description: Users
+  /admin/users/visitor:
+    post:
+      summary: Create visitor account
+      security:
+        - sanctum: []
+      responses:
+        '201':
+          description: Visitor created
+components:
+  securitySchemes:
+    sanctum:
+      type: http
+      scheme: bearer
+      bearerFormat: API Token

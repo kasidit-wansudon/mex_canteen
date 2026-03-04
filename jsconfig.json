@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./resources/js/*"
+      ],
+      "@/api/*": [
+        "./resources/js/api/*"
+      ],
+      "@css/*": [
+        "./resources/css/*"
+      ]
+    },
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "checkJs": false,
+    "jsx": "preserve"
+  },
+  "include": [
+    "resources/js/**/*",
+    "resources/css/**/*",
+    "resources/css/*"
+  ]
+}

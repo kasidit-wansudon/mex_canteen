@@ -1,0 +1,42 @@
+{
+    "app": {
+        "title": "Canteen Management",
+        "logout": "Logout",
+        "language": "Language"
+    },
+    "nav": {
+        "home": "Booking",
+        "reservation": "QR",
+        "history": "History",
+        "admin_dashboard": "Dashboard",
+        "admin_menu": "Menu",
+        "admin_scan": "Scanner",
+        "admin_users": "Users",
+        "admin_reports": "Reports"
+    },
+    "common": {
+        "loading": "Loading...",
+        "save": "Save",
+        "submit": "Submit",
+        "date": "Date",
+        "meal_type": "Meal type",
+        "status": "Status",
+        "search": "Search"
+    },
+    "reservation": {
+        "title": "Meal Reservation",
+        "type": "Reservation Type",
+        "visitor_count": "Visitor Count",
+        "pickup_code": "Pickup Staff Code",
+        "remark": "Remark",
+        "create": "Create Reservation",
+        "cancel": "Cancel Reservation",
+        "update": "Update Reservation"
+    },
+    "admin": {
+        "login_title": "Admin Login",
+        "scan_title": "QR Validation",
+        "qr_token": "QR Token",
+        "next": "Next"
+    }
+}
