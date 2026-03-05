@@ -10,7 +10,7 @@
           <van-button block native-type="submit" type="primary" :loading="loading">Login</van-button>
         </div>
       </van-form>
-      <p class="hint">Demo: A0001 / password123</p>
+      <p class="hint">Demo: kk / kljk</p>
     </section>
   </main>
 </template>
